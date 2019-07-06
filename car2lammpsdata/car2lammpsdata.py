@@ -19,10 +19,11 @@ def readcar(carfile):
     return crds, symbols, box
 
 
-def write(datafile, crds, symbols, box):
+def write(datafile, crds, symbols, box, symbollist=None):
     buff = ['by Jinzhe Zeng']
     buff.append(f'{len(symbols)} atoms')
-    symbollist = list(Counter(symbols))
+    if symbollist is None:
+        symbollist = list(Counter(symbols))
     buff.append(f'{len(symbollist)} atom types')
     buff.extend([f'0 {box[i]} {d}lo {d}hi' for i,
                  d in enumerate(['x', 'y', 'z'])])
@@ -37,16 +38,17 @@ def write(datafile, crds, symbols, box):
         f.write('\n'.join(buff))
 
 
-def convert(carfile, datafile):
-    write(datafile, *readcar(carfile))
+def convert(carfile, datafile, symbollist):
+    write(datafile, *readcar(carfile), symbollist)
 
 
 def _commandline():
     parser = argparse.ArgumentParser(description='car to lammps-data')
     parser.add_argument('-i', '--carfile',  required=True)
     parser.add_argument('-o', '--datafile',  required=True)
+    parser.add_argument('-a', '-s', '--symbol', nargs='*')
     args = parser.parse_args()
-    convert(args.carfile, args.datafile)
+    convert(args.carfile, args.datafile, symbollist=args.symbol)
 
 
 if __name__ == '__main__':
