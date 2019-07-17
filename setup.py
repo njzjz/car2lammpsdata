@@ -7,6 +7,7 @@ if __name__ == '__main__':
 
     setup(name='car2lammpsdata',
           description='car2lammpsdata',
+          version='0.0.2',
           keywords="car2lammpsdata",
           url='https://github.com/njzjz/car2lammpsdata',
           author='Jinzhe Zeng',
