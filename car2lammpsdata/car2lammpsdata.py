@@ -31,7 +31,7 @@ def write(datafile, crds, symbols, box, atom_style="charge", symbollist=None):
     else:
         raise RuntimeError("Unsupported atom_style!")
     buff.append(f'{len(symbollist)} atom types')
-    buff.extend([f'{box[i]} {d}lo {d}hi' for i,
+    buff.extend([f'0 {box[i]} {d}lo {d}hi' for i,
                  d in enumerate(['x', 'y', 'z'])])
     buff.extend(['Masses', ''])
     buff.extend([f'{i} {atomic_masses[atomic_numbers[s]]}' for i,
