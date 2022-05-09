@@ -9,6 +9,11 @@ pip install car2lammpsdata
 
 ## Usage
 
+Convert `methane.car` to `methane.data`:
+```sh
+car2lammpsdata -i methane.car -o methane.data -a C H O --atom-style=atomic
+```
+
 See help from
 ```sh
 car2lammpsdata -h
