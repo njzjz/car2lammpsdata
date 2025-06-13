@@ -11,7 +11,7 @@ if __name__ == '__main__':
           keywords="car2lammpsdata",
           url='https://github.com/njzjz/car2lammpsdata',
           author='Jinzhe Zeng',
-          author_email='jzzeng@stu.ecnu.edu.cn',
+          author_email='jinzhe.zeng@ustc.edu.cn',
           packages=find_packages(),
           python_requires='~=3.3',
           install_requires=[
